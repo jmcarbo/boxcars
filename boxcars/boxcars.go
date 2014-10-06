@@ -3,21 +3,21 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/azer/boxcars"
-	"github.com/azer/boxcars/json-config"
+	"github.com/jmcarbo/boxcars"
+	"github.com/jmcarbo/boxcars/json-config"
 	"os"
 )
 
 var (
 	filename string
-	port     int
+	port     string
 	user_id  int
 	group_id int
 	secure   bool
 )
 
 func main() {
-	flag.IntVar(&port, "port", 8080, "Port to listen")
+	flag.StringVar(&port, "port", ":8080", "Port to listen")
 	flag.BoolVar(&secure, "secure", false, "Enables secure mode to avoid running as sudo.")
 	flag.IntVar(&user_id, "uid", 1000, "User id that'll own the system process.")
 	flag.IntVar(&group_id, "gid", 1000, "Group id that'll own the system process.")

@@ -1,14 +1,14 @@
 package boxcars
 
 import (
-	"fmt"
+//	"fmt"
 	"net/http"
 )
 
-func Listen(port int) {
+func Listen(port string) {
 	debug("Starting at %d", port)
 	http.HandleFunc("/", OnRequest)
-	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	err := http.ListenAndServe(port, nil)
 	if err != nil {
 		debug("Fatal: %v", err)
 	}
